@@ -1,0 +1,38 @@
+---
+import Wrapper from "../components/shared/Wrapper.astro";
+import Layout from "../layouts/Layout.astro";
+
+import { Page_Seo_Query } from "../data/page/queries";
+
+const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    query: `
+		query privacyPolicyPageQuery {
+			page(id: "/privacy-policy", idType: URI) {
+				${Page_Seo_Query}
+			}
+		}
+	`,
+  }),
+});
+
+const {
+  data: {
+    page: { seoMetaTags, privacyPolicyPage },
+  },
+} = await response.json();
+---
+
+<Layout
+  metaImg={seoMetaTags.seoMetaInformation.metaImage.sourceUrl}
+  metaTitle={seoMetaTags.seoMetaInformation.metaTitle}
+  metaDescription={seoMetaTags.seoMetaInformation.metaDescription}
+>
+  <Wrapper>
+    <h1>Privacy Policy</h1>
+  </Wrapper>
+</Layout>
