@@ -2,14 +2,14 @@
 @use "../utils";
 
 .btn {
-  @include utils.font-sizer(1.6, 1.8, 76.8, 150, 1.8);
+  @include utils.font-sizer(2, 2.2, 76.8, 150, 2);
   position: relative;
   display: inline-block;
   padding: 1rem 3rem;
   transition: all 0.3s ease;
-  border: 0.1rem solid $accentColor;
-  border-radius: 0;
-  background-color: $accentColor;
+  border: 0.1rem solid $primaryColor;
+  border-radius: 1.5rem;
+  background-color: $primaryColor;
   color: $whiteColor;
   font-family: $primaryFont;
   font-weight: 400;
@@ -27,8 +27,9 @@
 
   &:hover {
     cursor: pointer;
-    background-color: $primaryColor;
-    border-color: $primaryColor;
+    background-color: $accentColor;
+    border-color: $accentColor;
+    color: $whiteColor;
   }
 
   &:disabled {
@@ -49,12 +50,13 @@
 
 .btn-two {
   @extend .btn;
-  background-color: transparent;
-  border-color: $shadowColor;
+  background-color: $accentColor;
+  border-color: $accentColor;
   color: $whiteColor;
 
   &:hover {
-    background-color: $accentColor;
-    border-color: $accentColor;
+    background-color: $primaryColor;
+    border-color: $primaryColor;
+    color: $whiteColor;
   }
 }
