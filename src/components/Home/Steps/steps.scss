@@ -1,0 +1,46 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+
+.steps {
+  position: relative;
+
+  &-title {
+    width: 100%;
+    margin-bottom: 2.5rem;
+    text-align: center;
+
+    h2 {
+      @extend .hl-three;
+      text-transform: uppercase;
+    }
+
+    p {
+      @extend .p-two;
+    }
+  }
+
+  &-image {
+    width: 100%;
+
+    &-inner {
+      max-width: 100rem;
+      margin: 1rem auto 2rem;
+    }
+  }
+
+  &-button {
+    margin: 3rem auto;
+    width: 100%;
+    text-align: center;
+  }
+
+  &-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+}

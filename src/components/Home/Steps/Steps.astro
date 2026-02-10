@@ -13,29 +13,31 @@ const stepsImageSrc = stepsImage?.node?.sourceUrl;
 const stepsAlt = stepsImage?.node?.altText || "";
 ---
 
-<div>
-  <Wrapper>
-    <div>
+<div class="steps">
+  <Wrapper classes="steps-wrapper">
+    <div class="steps-title">
       <h2>{title}</h2>
       <p>{subTitle}</p>
     </div>
-    <div>
-      <Image
-        src={stepsImageSrc}
-        alt={stepsAlt}
-        format="webp"
-        widths={[800, 1200, 1600, 2000]}
-        sizes="100vw"
-        loading="eager"
-        inferSize={true}
-        class=""
-      />
+    <div class="steps-image">
+      <div class="steps-image-inner">
+        <Image
+          src={stepsImageSrc}
+          alt={stepsAlt}
+          format="webp"
+          widths={[800, 1200, 1600, 2000]}
+          sizes="100vw"
+          loading="eager"
+          inferSize={true}
+          class=""
+        />
+      </div>
     </div>
-    <div>
+    <div class="steps-button">
       <Button ele="a" href={buttonLink.edges[0].node.uri}>{buttonText}</Button>
     </div>
   </Wrapper>
-  <div>
+  <div class="steps-background">
     <Image
       src={bgImageSrc}
       alt={bgAlt}
