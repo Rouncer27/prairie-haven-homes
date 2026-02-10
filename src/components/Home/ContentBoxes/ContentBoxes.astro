@@ -1,0 +1,104 @@
+---
+import { Image } from "astro:assets";
+import Wrapper from "../../shared/Wrapper.astro";
+import "./contentBoxes.scss";
+import Button from "../../shared/Button.astro";
+
+const {
+  boxOneImage,
+  boxOneBackground,
+  boxOneContent,
+  boxOneButtonText,
+  boxOneButtonLink,
+  boxTwoImage,
+  boxTwoBackground,
+  boxTwoContent,
+} = Astro.props.data;
+
+const oneImageSrc = boxOneImage?.node?.sourceUrl;
+const oneAlt = boxOneImage?.node?.altText || "";
+const bgImageSrc = boxOneBackground?.node?.sourceUrl;
+const bgAlt = boxOneBackground?.node?.altText || "";
+
+const twoImageSrc = boxTwoImage?.node?.sourceUrl;
+const twoAlt = boxTwoImage?.node?.altText || "";
+const twoBgImageSrc = boxTwoBackground?.node?.sourceUrl;
+const twoBgAlt = boxTwoBackground?.node?.altText || "";
+---
+
+<div class="content-boxes">
+  <Wrapper classes="content-boxes-wrapper">
+    <div class="content-boxes-boxone">
+      <div class="content-boxes-boxone-image">
+        <Image
+          src={oneImageSrc}
+          alt={oneAlt}
+          format="webp"
+          widths={[800, 1200, 1600, 2000]}
+          sizes="100vw"
+          loading="eager"
+          inferSize={true}
+          class=""
+        />
+      </div>
+      <div class="content-boxes-boxone-content">
+        <div class="content-boxes-boxone-content-paragraphs">
+          <div class="content-boxes-boxone-content-paragraphs-inner">
+            <div set:html={boxOneContent} />
+            <div>
+              <Button ele="a" href={boxOneButtonLink.edges[0].node.uri}
+                >{boxOneButtonText}</Button
+              >
+            </div>
+          </div>
+        </div>
+        <div class="content-boxes-boxone-content-background">
+          <Image
+            src={bgImageSrc}
+            alt={bgAlt}
+            format="webp"
+            widths={[800, 1200, 1600, 2000]}
+            sizes="100vw"
+            loading="eager"
+            inferSize={true}
+            class=""
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="content-boxes-boxtwo">
+      <div class="content-boxes-boxtwo-image">
+        <Image
+          src={twoImageSrc}
+          alt={twoAlt}
+          format="webp"
+          widths={[800, 1200, 1600, 2000]}
+          sizes="100vw"
+          loading="eager"
+          inferSize={true}
+          class=""
+        />
+      </div>
+      <div class="content-boxes-boxtwo-content">
+        <div class="content-boxes-boxtwo-content-paragraphs">
+          <div class="content-boxes-boxtwo-content-paragraphs-inner">
+            <div set:html={boxTwoContent} />
+          </div>
+        </div>
+        <div class="content-boxes-boxtwo-content-background">
+          <Image
+            src={twoBgImageSrc}
+            alt={twoBgAlt}
+            format="webp"
+            widths={[800, 1200, 1600, 2000]}
+            sizes="100vw"
+            loading="eager"
+            inferSize={true}
+            class=""
+          />
+        </div>
+      </div>
+    </div>
+  </Wrapper>
+</div>

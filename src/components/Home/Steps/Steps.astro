@@ -1,0 +1,50 @@
+---
+import { Image } from "astro:assets";
+import Wrapper from "../../shared/Wrapper.astro";
+import "./steps.scss";
+import Button from "../../shared/Button.astro";
+
+const { title, subTitle, backgroundImage, stepsImage, buttonText, buttonLink } =
+  Astro.props.data;
+
+const bgImageSrc = backgroundImage?.node?.sourceUrl;
+const bgAlt = backgroundImage?.node?.altText || "";
+const stepsImageSrc = stepsImage?.node?.sourceUrl;
+const stepsAlt = stepsImage?.node?.altText || "";
+---
+
+<div>
+  <Wrapper>
+    <div>
+      <h2>{title}</h2>
+      <p>{subTitle}</p>
+    </div>
+    <div>
+      <Image
+        src={stepsImageSrc}
+        alt={stepsAlt}
+        format="webp"
+        widths={[800, 1200, 1600, 2000]}
+        sizes="100vw"
+        loading="eager"
+        inferSize={true}
+        class=""
+      />
+    </div>
+    <div>
+      <Button ele="a" href={buttonLink.edges[0].node.uri}>{buttonText}</Button>
+    </div>
+  </Wrapper>
+  <div>
+    <Image
+      src={bgImageSrc}
+      alt={bgAlt}
+      format="webp"
+      widths={[800, 1200, 1600, 2000]}
+      sizes="100vw"
+      loading="eager"
+      inferSize={true}
+      class=""
+    />
+  </div>
+</div>
