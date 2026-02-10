@@ -43,8 +43,15 @@
           width: calc(80%);
           margin: 0 auto;
           padding: 4.5rem;
+          padding-top: 20rem;
           position: relative;
-          background-color: $whiteColor;
+          background: linear-gradient(
+            358deg,
+            #fff 0%,
+            #fff 70%,
+            transparent 70%,
+            transparent 100%
+          );
         }
       }
     }
