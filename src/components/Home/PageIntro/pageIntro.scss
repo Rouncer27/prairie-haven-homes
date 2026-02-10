@@ -1,0 +1,35 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+
+.page-intro {
+  &-wrapper {
+    flex-direction: row-reverse;
+  }
+
+  &-content {
+    @media (min-width: 768px) {
+      width: calc(75% - 4rem);
+      margin-left: 4rem;
+    }
+
+    &-big {
+      p {
+        @extend .hl-three;
+      }
+    }
+
+    &-small {
+      p {
+        @extend .p-one;
+      }
+    }
+  }
+
+  &-images {
+    @media (min-width: 768px) {
+      width: calc(25% - 4rem);
+      margin-right: 4rem;
+    }
+  }
+}
