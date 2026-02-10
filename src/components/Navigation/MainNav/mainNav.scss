@@ -42,6 +42,7 @@
           padding: 1.5rem 0.5rem;
           border-top: 0.2rem solid transparent;
           border-bottom: 0.2rem solid transparent;
+          color: $tertiaryColor;
           text-transform: uppercase;
 
           @media (min-width: 1150px) {
@@ -49,6 +50,7 @@
           }
 
           &:hover {
+            color: $accentColor;
             border-top-color: $accentColor;
             border-bottom-color: $accentColor;
           }
@@ -56,6 +58,7 @@
 
         a.main-nav-current {
           font-weight: bold;
+          color: $accentColor;
           border-top-color: $accentColor;
           border-bottom-color: $accentColor;
 

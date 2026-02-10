@@ -35,16 +35,16 @@
       width: 100%;
       padding-top: 1rem;
       padding-bottom: 1rem;
-      color: $secondaryColor;
+      color: $blackColor;
       cursor: pointer;
       text-transform: uppercase;
 
       &:hover {
-        color: $secondaryColor;
+        color: $primaryColor;
       }
 
       &.menu-links-item-link-current {
-        color: $tertiaryColor;
+        color: $primaryColor;
       }
     }
   }
