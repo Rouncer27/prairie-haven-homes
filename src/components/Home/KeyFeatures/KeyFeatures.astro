@@ -6,16 +6,16 @@ import "./keyFeatures.scss";
 const { title, features } = Astro.props.data;
 ---
 
-<div>
-  <Wrapper>
-    <div>
+<div class="key-features">
+  <Wrapper classes="key-features-wrapper">
+    <div class="key-features-title">
       <h2>{title}</h2>
     </div>
-    <div>
+    <div class="key-features-items">
       {
         features.map((feature) => {
           return (
-            <div>
+            <div class="key-features-items-feature">
               <div set:html={feature.feature} />
             </div>
           );
