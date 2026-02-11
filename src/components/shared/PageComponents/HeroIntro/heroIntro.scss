@@ -4,79 +4,64 @@
 
 .hero-intro {
   position: relative;
+  min-height: 45rem;
+  margin-bottom: 5rem;
 
   @media (min-width: 768px) {
-    height: 100vh;
-    min-height: 82.5rem;
+    min-height: 65rem;
+  }
+
+  @media (min-width: 1024px) {
+    min-height: 70rem;
   }
 
   &-content {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding-top: 20rem;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -5rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 100;
-
-    @media (min-width: 768px) {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding-top: 0rem;
-    }
 
     &-wrap {
       position: relative;
       width: 100%;
+      margin: 0 auto;
       max-width: 85vw;
-      margin-left: auto;
-      margin-right: 4rem;
-      margin-bottom: 4rem;
       z-index: 100;
 
       @media (min-width: 768px) {
         max-width: 110rem;
-        margin: 0 auto 10rem;
       }
     }
 
     &-title {
       width: 100%;
+      text-align: center;
 
       h2 {
         @extend .hl-one;
         font-weight: 600;
         color: $whiteColor;
       }
-    }
 
-    &-paragraph {
-      width: 100%;
-
-      p {
-        @extend .p-two;
+      h3 {
+        @extend .hl-three;
         color: $whiteColor;
-      }
-    }
-
-    &-buttons {
-      a:first-of-type {
-        margin-bottom: 2.5rem;
-
-        @media (min-width: 768px) {
-          margin-bottom: 0;
-        }
       }
     }
   }
 
   &-background {
     position: absolute;
-    top: 0%;
+    top: -5rem;
     bottom: 0;
-    left: 0;
-    right: 0;
+    left: -5rem;
+    right: -5rem;
+    transform: rotate(-2deg);
     z-index: 1;
     overflow: hidden;
 
@@ -94,12 +79,25 @@
 
   &-overlay {
     position: absolute;
-    top: 0%;
+    top: -5rem;
     bottom: 0;
-    left: 0;
-    right: 0;
+    left: -5rem;
+    right: -5rem;
     z-index: 10;
-    background-color: #1d3a47;
+    transform: rotate(-2deg);
+    background-color: $accentColor;
     opacity: 0.75;
+
+    &.background-colour-pine {
+      background-color: $accentColor;
+    }
+
+    &.background-colour-dirt-brown {
+      background-color: $tertiaryColor;
+    }
+
+    &.background-colour-dull-yellow {
+      background-color: $primaryColor;
+    }
   }
 }

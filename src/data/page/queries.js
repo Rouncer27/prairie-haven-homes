@@ -12,3 +12,21 @@ export const Page_Seo_Query = `
         }
     }
 `;
+
+export const Hero_Intro_Query = `
+   	 heroIntro: heroIntroComponent {
+        title
+        subTitle
+        backgroundColour
+        image {
+            node {
+                sourceUrl
+                altText
+                mediaDetails {
+                    width
+                    height
+                }
+            }
+        }
+    }
+`;
