@@ -3,6 +3,7 @@
 @use "../../../styles/global/paragraphs";
 
 .key-features {
+  width: 100%;
   margin-top: 5rem;
   margin-bottom: 5rem;
 
@@ -22,9 +23,16 @@
     width: 100%;
 
     &-feature {
+      width: calc(100%);
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 0.3rem solid $primaryColor;
+
       @media (min-width: 768px) {
         width: calc(33.33333333%);
+        margin-bottom: 0;
         padding: 0 2.1rem;
+        border-bottom: 0rem solid $primaryColor;
         border-left: 0.3rem solid $primaryColor;
       }
 

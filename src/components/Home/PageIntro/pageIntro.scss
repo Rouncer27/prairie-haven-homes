@@ -3,6 +3,9 @@
 @use "../../../styles/global/paragraphs";
 
 .page-intro {
+  position: relative;
+  z-index: 10;
+
   &-wrapper {
     flex-direction: row-reverse;
   }
@@ -27,9 +30,21 @@
   }
 
   &-images {
+    width: calc(100%);
+
     @media (min-width: 768px) {
       width: calc(25% - 4rem);
+      margin-top: -15rem;
       margin-right: 4rem;
+    }
+
+    &-container {
+      max-width: 25rem;
+      margin: 2.5rem auto;
+
+      &:last-of-type {
+        max-width: 20rem;
+      }
     }
   }
 }
