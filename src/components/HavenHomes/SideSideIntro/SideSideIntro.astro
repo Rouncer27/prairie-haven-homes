@@ -1,0 +1,13 @@
+---
+import Wrapper from "../../shared/Wrapper.astro";
+import "./sideSideIntro.scss";
+
+const { bigFontContent, content } = Astro.props.data;
+---
+
+<div class="side-side-content">
+  <Wrapper classes="side-side-content__wrapper">
+    <div class="side-side-content__big" set:html={bigFontContent} />
+    <div class="side-side-content__content" set:html={content} />
+  </Wrapper>
+</div>

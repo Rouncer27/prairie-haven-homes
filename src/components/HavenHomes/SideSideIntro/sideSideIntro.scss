@@ -1,0 +1,32 @@
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+
+.side-side-content {
+  margin: 7.5rem auto 0;
+
+  &__big {
+    width: calc(100%);
+
+    @media (min-width: 768px) {
+      width: calc(50% - 3rem);
+      margin-right: 3rem;
+    }
+
+    p {
+      @extend .hl-three;
+    }
+  }
+
+  &__content {
+    width: calc(100%);
+
+    @media (min-width: 768px) {
+      width: calc(50% - 3rem);
+      margin-left: 3rem;
+    }
+
+    p {
+      @extend .p-one;
+    }
+  }
+}

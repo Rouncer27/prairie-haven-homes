@@ -1,12 +1,12 @@
 ---
 // @ts-nocheck
-import Wrapper from "../../shared/Wrapper.astro";
+import Wrapper from "../../Wrapper.astro";
 import "./keyFeatures.scss";
 
-const { title, features } = Astro.props.data;
+const { title, features, backgroundColour } = Astro.props.data;
 ---
 
-<div class="key-features">
+<div class={`key-features key-features-bg-${backgroundColour}`}>
   <Wrapper classes="key-features-wrapper">
     <div class="key-features-title">
       <h2>{title}</h2>

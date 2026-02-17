@@ -1,8 +1,16 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import HeroIntro from "../components/shared/PageComponents/HeroIntro/HeroIntro.astro";
+import Layout from "../../layouts/Layout.astro";
+import HeroIntro from "../../components/shared/PageComponents/HeroIntro/HeroIntro.astro";
+import SideSideIntro from "../../components/HavenHomes/SideSideIntro/SideSideIntro.astro";
+import KeyFeatures from "../../components/shared/PageComponents/KeyFeatures/KeyFeatures.astro";
 
-import { Page_Seo_Query, Hero_Intro_Query } from "../data/page/queries";
+import {
+  Page_Seo_Query,
+  Hero_Intro_Query,
+  Key_Features_Query,
+} from "../../data/page/queries";
+
+import { Side_Side_Intro_Query } from "../../data/havenHomes/queries";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   method: "POST",
@@ -16,6 +24,8 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
 				${Page_Seo_Query}
         havenHomesPage {
           ${Hero_Intro_Query}
+          ${Side_Side_Intro_Query}
+          ${Key_Features_Query}
         }
 			}
 		}
@@ -36,4 +46,6 @@ const {
   metaDescription={seoMetaTags.seoMetaInformation.metaDescription}
 >
   <HeroIntro data={havenHomesPage.heroIntro} />
+  <SideSideIntro data={havenHomesPage.sideSideIntro} />
+  <KeyFeatures data={havenHomesPage.keyFeatures} />
 </Layout>

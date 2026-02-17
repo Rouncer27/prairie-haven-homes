@@ -30,3 +30,13 @@ export const Hero_Intro_Query = `
         }
     }
 `;
+
+export const Key_Features_Query = `
+   	 keyFeatures: keyFeaturesComponent {
+        title
+        backgroundColour
+        features {
+            feature
+        }
+    }
+`;

@@ -49,15 +49,6 @@ export const Page_Intro_Query = `
     }
 `;
 
-export const Key_Features_Query = `
-   	 keyFeatures: keyFeaturesComponent {
-        title
-        features {
-            feature
-        }
-    }
-`;
-
 export const Content_Boxes_Query = `
    	 contentBoxes: contentBoxesComponent {
         boxOneImage {
