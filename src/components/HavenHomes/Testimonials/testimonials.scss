@@ -1,0 +1,46 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+
+.testimonials {
+  &-title {
+    width: 100%;
+    text-align: center;
+
+    h2 {
+      @extend .hl-three;
+    }
+  }
+
+  &-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+
+    &-testimonial {
+      width: 100%;
+      border-radius: 3.5rem;
+      transition: all 0.3s ease;
+      background-color: rgba(247, 240, 217, 1);
+
+      @media (min-width: 768px) {
+        width: calc(33.333333333% - 3rem);
+        margin: 1.5rem;
+        padding: 3rem;
+      }
+
+      p {
+        @extend .p-two;
+      }
+
+      &:hover {
+        background-color: $primaryColor;
+
+        p {
+          color: $whiteColor;
+        }
+      }
+    }
+  }
+}
