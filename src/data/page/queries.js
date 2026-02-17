@@ -31,6 +31,12 @@ export const Hero_Intro_Query = `
     }
 `;
 
+export const Locations_Query = `
+   	 locations: locationsComponent {
+        title
+    }
+`;
+
 export const Key_Features_Query = `
    	 keyFeatures: keyFeaturesComponent {
         title

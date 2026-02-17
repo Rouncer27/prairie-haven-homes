@@ -4,12 +4,14 @@ import HeroIntro from "../../components/shared/PageComponents/HeroIntro/HeroIntr
 import SideSideIntro from "../../components/HavenHomes/SideSideIntro/SideSideIntro.astro";
 import KeyFeatures from "../../components/shared/PageComponents/KeyFeatures/KeyFeatures.astro";
 import Floorplans from "../../components/HavenHomes/Floorplans/Floorplans.astro";
+import Locations from "../../components/shared/PageComponents/Locations/Locations.astro";
 import ContentBoxes from "../../components/HavenHomes/ContentBoxes/ContentBoxes.astro";
 
 import {
   Page_Seo_Query,
   Hero_Intro_Query,
   Key_Features_Query,
+  Locations_Query,
 } from "../../data/page/queries";
 
 import {
@@ -33,6 +35,7 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
           ${Side_Side_Intro_Query}
           ${Key_Features_Query}
           ${Floorplans_Query}
+          ${Locations_Query}
           ${Content_Boxes_Query}
         }
 			}
@@ -82,5 +85,6 @@ const {
   <SideSideIntro data={havenHomesPage.sideSideIntro} />
   <KeyFeatures data={havenHomesPage.keyFeatures} />
   <Floorplans data={havenHomesPage.floorplans} floorplans={floorplans.edges} />
+  <Locations data={havenHomesPage.locations} />
   <ContentBoxes data={havenHomesPage.contentBoxes} />
 </Layout>

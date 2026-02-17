@@ -1,0 +1,14 @@
+---
+import Wrapper from "../../Wrapper.astro";
+import "./locations.scss";
+
+const { title } = Astro.props.data;
+---
+
+<div class="locations">
+  <Wrapper classes="locations-wrapper">
+    <div class="locations-title">
+      <h2>{title}</h2>
+    </div>
+  </Wrapper>
+</div>
