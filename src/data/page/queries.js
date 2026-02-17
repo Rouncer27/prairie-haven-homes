@@ -46,3 +46,10 @@ export const Key_Features_Query = `
         }
     }
 `;
+
+export const Testimonials_Query = `
+   	 testimonials: testimonialsComponent {
+        displayTestimonials
+        title
+    }
+`;

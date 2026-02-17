@@ -6,12 +6,14 @@ import KeyFeatures from "../../components/shared/PageComponents/KeyFeatures/KeyF
 import Floorplans from "../../components/HavenHomes/Floorplans/Floorplans.astro";
 import Locations from "../../components/shared/PageComponents/Locations/Locations.astro";
 import ContentBoxes from "../../components/HavenHomes/ContentBoxes/ContentBoxes.astro";
+import Testimonials from "../../components/HavenHomes/Testimonials/Testimonials.astro";
 
 import {
   Page_Seo_Query,
   Hero_Intro_Query,
   Key_Features_Query,
   Locations_Query,
+  Testimonials_Query,
 } from "../../data/page/queries";
 
 import {
@@ -37,6 +39,7 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
           ${Floorplans_Query}
           ${Locations_Query}
           ${Content_Boxes_Query}
+          ${Testimonials_Query}
         }
 			}
 
@@ -63,6 +66,19 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
         }
 
 
+        testimonials(first: 999999) {
+          edges {
+            node {
+              title
+              slug
+              testimonialPost {
+               mainTestimonial
+              }
+            }
+          }
+        }
+
+
 		}
 	`,
   }),
@@ -72,6 +88,7 @@ const {
   data: {
     page: { seoMetaTags, havenHomesPage },
     floorplans,
+    testimonials,
   },
 } = await response.json();
 ---
@@ -87,4 +104,8 @@ const {
   <Floorplans data={havenHomesPage.floorplans} floorplans={floorplans.edges} />
   <Locations data={havenHomesPage.locations} />
   <ContentBoxes data={havenHomesPage.contentBoxes} />
+  <Testimonials
+    data={havenHomesPage.testimonials}
+    testimonials={testimonials.edges}
+  />
 </Layout>
