@@ -3,6 +3,8 @@ import Layout from "../../layouts/Layout.astro";
 import HeroIntro from "../../components/shared/PageComponents/HeroIntro/HeroIntro.astro";
 import SideSideIntro from "../../components/HavenHomes/SideSideIntro/SideSideIntro.astro";
 import KeyFeatures from "../../components/shared/PageComponents/KeyFeatures/KeyFeatures.astro";
+import Floorplans from "../../components/HavenHomes/Floorplans/Floorplans.astro";
+import ContentBoxes from "../../components/HavenHomes/ContentBoxes/ContentBoxes.astro";
 
 import {
   Page_Seo_Query,
@@ -10,7 +12,11 @@ import {
   Key_Features_Query,
 } from "../../data/page/queries";
 
-import { Side_Side_Intro_Query } from "../../data/havenHomes/queries";
+import {
+  Side_Side_Intro_Query,
+  Floorplans_Query,
+  Content_Boxes_Query,
+} from "../../data/havenHomes/queries";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   method: "POST",
@@ -26,8 +32,34 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
           ${Hero_Intro_Query}
           ${Side_Side_Intro_Query}
           ${Key_Features_Query}
+          ${Floorplans_Query}
+          ${Content_Boxes_Query}
         }
 			}
+
+      floorplans(first: 999999) {
+          edges {
+            node {
+              title
+              slug
+              floorplanPost {
+                featuredImage {
+                  node {
+                      sourceUrl
+                      altText
+                      mediaDetails {
+                          width
+                          height
+                      }
+                  }
+                }
+                specs
+              }
+            }
+          }
+        }
+
+
 		}
 	`,
   }),
@@ -36,6 +68,7 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
 const {
   data: {
     page: { seoMetaTags, havenHomesPage },
+    floorplans,
   },
 } = await response.json();
 ---
@@ -48,4 +81,6 @@ const {
   <HeroIntro data={havenHomesPage.heroIntro} />
   <SideSideIntro data={havenHomesPage.sideSideIntro} />
   <KeyFeatures data={havenHomesPage.keyFeatures} />
+  <Floorplans data={havenHomesPage.floorplans} floorplans={floorplans.edges} />
+  <ContentBoxes data={havenHomesPage.contentBoxes} />
 </Layout>

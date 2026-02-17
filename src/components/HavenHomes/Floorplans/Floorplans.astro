@@ -1,0 +1,57 @@
+---
+// @ts-nocheck
+import { Image } from "astro:assets";
+import Wrapper from "../../shared/Wrapper.astro";
+import "./floorplans.scss";
+
+const { displayFloorplans, title } = Astro.props.data;
+const { floorplans } = Astro.props;
+---
+
+{
+  displayFloorplans ? (
+    <div class="floorplans">
+      <Wrapper classes="floorplans__wrapper">
+        <div class="floorplans__title">
+          <h2>{title}</h2>
+        </div>
+        <div class="floorplans__plans">
+          {floorplans.map((plan) => {
+            const imageSrc =
+              plan?.node?.floorplanPost?.featuredImage?.node?.sourceUrl;
+            const imageAlt =
+              plan?.node?.floorplanPost?.featuredImage?.node?.altText || "";
+
+            return (
+              <div class="floorplans__plan">
+                <a
+                  class="floorplans__plan-link"
+                  href={`/haven-homes/${plan.node.slug}`}
+                >
+                  <div class="floorplans__plan-title">
+                    <div class="floorplans__plan-title-inner">
+                      <h3>{plan.node.title}</h3>
+                      <p>{plan.node.floorplanPost.specs} - Floorplan</p>
+                    </div>
+                  </div>
+                  <div class="floorplans__plan-image">
+                    <Image
+                      src={imageSrc}
+                      alt={imageAlt}
+                      format="webp"
+                      widths={[800, 1200, 1600, 2000]}
+                      sizes="100vw"
+                      loading="eager"
+                      inferSize={true}
+                      class=""
+                    />
+                  </div>
+                </a>
+              </div>
+            );
+          })}
+        </div>
+      </Wrapper>
+    </div>
+  ) : null
+}
