@@ -53,3 +53,20 @@ export const Testimonials_Query = `
         title
     }
 `;
+
+export const Floorplan_Hero_Query = `
+   	 heroImage: siteWideSettings {
+        floorplanHero {
+            floorplanHeroImage {
+                node {
+                    sourceUrl
+                    altText
+                    mediaDetails {
+                        width
+                        height
+                    }
+                }
+            }
+        }
+    }
+`;

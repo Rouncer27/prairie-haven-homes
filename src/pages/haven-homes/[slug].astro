@@ -1,0 +1,85 @@
+---
+// @ts-nocheck
+import Layout from "../../layouts/Layout.astro";
+import FloorplansHero from "../../components/shared/PageComponents/FloorplansHero/FloorplansHero.astro";
+
+import { Page_Seo_Query, Floorplan_Hero_Query } from "../../data/page/queries";
+import { Hero_Titles_Query } from "../../data/floorPlans/queries";
+
+export async function getStaticPaths() {
+  const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      query: `
+        query floorplansQuery {
+            floorplans(first: 999999) {
+                nodes {
+                    uri
+                    slug
+                    title
+                }   
+            }
+        }
+        `,
+    }),
+  });
+
+  const { data } = await response.json();
+  return data.floorplans.nodes.map((floorplan, index) => {
+    return {
+      params: { slug: `${floorplan.slug}` },
+      props: {
+        next: index === 0 ? null : data.floorplans.nodes[index - 1],
+        prev:
+          index === data.floorplans.nodes.length - 1
+            ? null
+            : data.floorplans.nodes[index + 1],
+      },
+    };
+  });
+}
+
+const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    query: `
+    query floorplanQuery($id: ID!) {
+        floorplan(idType: SLUG, id: $id) {
+            ${Page_Seo_Query}
+            ${Hero_Titles_Query}
+        }
+        ${Floorplan_Hero_Query}
+    }
+    `,
+    variables: {
+      id: Astro.params["slug"],
+    },
+  }),
+});
+
+const {
+  data: {
+    floorplan,
+    heroImage,
+    floorplan: { seoMetaTags },
+  },
+} = await response.json();
+---
+
+<Layout
+  metaImg={seoMetaTags.seoMetaInformation.metaImage.sourceUrl}
+  metaTitle={seoMetaTags.seoMetaInformation.metaTitle}
+  metaDescription={seoMetaTags.seoMetaInformation.metaDescription}
+>
+  <FloorplansHero
+    image={heroImage.floorplanHero.floorplanHeroImage}
+    title={floorplan.title}
+    specs={floorplan.floorplanPost.specs}
+  />
+</Layout>
