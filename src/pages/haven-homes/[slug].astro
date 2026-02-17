@@ -1,10 +1,14 @@
 ---
 // @ts-nocheck
 import Layout from "../../layouts/Layout.astro";
-import FloorplansHero from "../../components/shared/PageComponents/FloorplansHero/FloorplansHero.astro";
+import FloorplansHero from "../../components/FloorplanPost/FloorplansHero/FloorplansHero.astro";
+import FloorplanIntro from "../../components/FloorplanPost/FloorplanIntro/FloorplanIntro.astro";
 
 import { Page_Seo_Query, Floorplan_Hero_Query } from "../../data/page/queries";
-import { Hero_Titles_Query } from "../../data/floorPlans/queries";
+import {
+  Hero_Titles_Query,
+  Floorplan_Intro_Query,
+} from "../../data/floorPlans/queries";
 
 export async function getStaticPaths() {
   const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
@@ -51,10 +55,15 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
     query: `
     query floorplanQuery($id: ID!) {
         floorplan(idType: SLUG, id: $id) {
+            title
             ${Page_Seo_Query}
-            ${Hero_Titles_Query}
+            floorplanPost {
+                ${Hero_Titles_Query}
+                ${Floorplan_Intro_Query}
+            }            
         }
         ${Floorplan_Hero_Query}
+        
     }
     `,
     variables: {
@@ -67,7 +76,7 @@ const {
   data: {
     floorplan,
     heroImage,
-    floorplan: { seoMetaTags },
+    floorplan: { seoMetaTags, floorplanPost },
   },
 } = await response.json();
 ---
@@ -78,8 +87,8 @@ const {
   metaDescription={seoMetaTags.seoMetaInformation.metaDescription}
 >
   <FloorplansHero
+    data={floorplanPost.heroTitles}
     image={heroImage.floorplanHero.floorplanHeroImage}
-    title={floorplan.title}
-    specs={floorplan.floorplanPost.specs}
   />
+  <FloorplanIntro data={floorplanPost.floorplanIntro} />
 </Layout>

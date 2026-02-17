@@ -2,7 +2,7 @@
 import "./floorplansHero.scss";
 import { Image } from "astro:assets";
 
-const { title, specs, image } = Astro.props;
+const { data, image } = Astro.props;
 
 const heroImageSrc = image?.node?.sourceUrl;
 const heroAlt = image?.node?.altText || "";
@@ -12,8 +12,7 @@ const heroAlt = image?.node?.altText || "";
   <div class="hero-intro-content">
     <div class="hero-intro-content-wrap">
       <div class="hero-intro-content-title">
-        <h2 set:html={title} />
-        <h3 set:html={specs} />
+        <h2 set:html={data.title} />
       </div>
     </div>
   </div>

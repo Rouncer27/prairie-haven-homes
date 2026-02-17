@@ -1,6 +1,6 @@
-@use "../../../../styles/abstracts/" as *;
-@use "../../../../styles/global/headlines";
-@use "../../../../styles/global/paragraphs";
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
 
 .hero-intro {
   position: relative;
@@ -42,15 +42,12 @@
       width: 100%;
       text-align: center;
 
-      h2 {
-        @extend .hl-one;
-        font-weight: 600;
-        color: $whiteColor;
-      }
-
+      h2,
       h3 {
         @extend .hl-three;
+        margin: 0;
         color: $whiteColor;
+        text-transform: uppercase;
       }
     }
   }

@@ -1,0 +1,36 @@
+@use "../../../styles/global/paragraphs";
+
+.floorplan-intro {
+  padding: 5rem 0;
+
+  &-wrapper {
+    flex-direction: row-reverse;
+  }
+
+  &-content {
+    width: calc(100%);
+
+    @media (min-width: 798px) {
+      width: calc(50% - 2rem);
+      margin-left: 2rem;
+    }
+
+    h2 {
+      @extend .p-two;
+      font-weight: bold;
+    }
+
+    p {
+      @extend .p-two;
+    }
+  }
+
+  &-image {
+    width: calc(100%);
+
+    @media (min-width: 798px) {
+      width: calc(50% - 2rem);
+      margin-right: 2rem;
+    }
+  }
+}
