@@ -8,17 +8,21 @@ const imageSrc = image?.node?.sourceUrl;
 const imagelt = image?.node?.altText || "";
 ---
 
-<div>
-  <div>
-    <div>
-      <h2>{title}</h2>
-    </div>
-    <div set:html={content} />
-    <div>
-      <Button ele="a" href={buttonLink.edges[0].node.uri}>{buttonText}</Button>
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-content-inner">
+      <div>
+        <h2>{title}</h2>
+      </div>
+      <div set:html={content} />
+      <div>
+        <Button btnstyle="two" ele="a" href={buttonLink.edges[0].node.uri}
+          >{buttonText}</Button
+        >
+      </div>
     </div>
   </div>
-  <div>
+  <div class="page-hero-image">
     <Image
       src={imageSrc}
       alt={imagelt}
