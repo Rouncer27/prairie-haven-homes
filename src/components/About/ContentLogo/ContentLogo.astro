@@ -10,9 +10,9 @@ const logoSrc = logo?.node?.sourceUrl;
 const logoAlt = logo?.node?.altText || "";
 ---
 
-<div>
-  <Wrapper>
-    <div>
+<div class="content-logo">
+  <Wrapper classes="content-logo-wrapper">
+    <div class="content-logo-image">
       <Image
         src={logoSrc}
         alt={logoAlt}
@@ -24,14 +24,14 @@ const logoAlt = logo?.node?.altText || "";
         class=""
       />
     </div>
-    <div>
-      <div>
+    <div class="content-logo-main">
+      <div class="content-logo-main-title">
         <h2>{title}</h2>
       </div>
       {
         contentSections.map((section) => {
           return (
-            <div>
+            <div class="content-logo-main-section">
               <h3>{section.boldText}</h3>
               <div set:html={section.content} />
             </div>
