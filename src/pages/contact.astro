@@ -2,7 +2,17 @@
 import Layout from "../layouts/Layout.astro";
 import HeroIntro from "../components/shared/PageComponents/HeroIntro/HeroIntro.astro";
 
-import { Page_Seo_Query, Hero_Intro_Query } from "../data/page/queries";
+import StepsProcess from "../components/shared/PageComponents/StepsProcess/StepsProcess.astro";
+
+import {
+  Page_Seo_Query,
+  Hero_Intro_Query,
+  Steps_Process_Query,
+} from "../data/page/queries";
+import {
+  Contact_Information_Query,
+  Images_Row_Query,
+} from "../data/contact/queries";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   method: "POST",
@@ -16,7 +26,10 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
 				${Page_Seo_Query}
 
         contactPage {
-        ${Hero_Intro_Query}
+          ${Hero_Intro_Query}
+          ${Contact_Information_Query}
+          ${Images_Row_Query}
+          ${Steps_Process_Query}
         }
 			}
 		}
@@ -37,4 +50,5 @@ const {
   metaDescription={seoMetaTags.seoMetaInformation.metaDescription}
 >
   <HeroIntro data={contactPage.heroIntro} />
+  <StepsProcess data={contactPage.stepsProcess} />
 </Layout>

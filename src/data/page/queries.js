@@ -105,3 +105,13 @@ export const Steps_Query = `
         }
     }
 `;
+
+export const Steps_Process_Query = `
+   	stepsProcess: stepsProcessComponent {
+        title
+        steps {
+            title
+            content
+        }
+    }
+`;

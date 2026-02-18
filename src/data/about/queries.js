@@ -77,16 +77,6 @@ export const Page_Hero_Query = `
     }
 `;
 
-export const Steps_Process_Query = `
-   	stepsProcess: stepsProcessComponent {
-        title
-        steps {
-            title
-            content
-        }
-    }
-`;
-
 export const Values_Query = `
    	values: valuesComponent {
         title
