@@ -1,0 +1,11 @@
+---
+import Wrapper from "../../shared/Wrapper.astro";
+import InvestmentForm from "../../sharedReact/InvestmentForm/InvestmentForm";
+import "./investmentFormDisplay.scss";
+---
+
+<div>
+  <Wrapper>
+    <InvestmentForm client:only="react" />
+  </Wrapper>
+</div>
