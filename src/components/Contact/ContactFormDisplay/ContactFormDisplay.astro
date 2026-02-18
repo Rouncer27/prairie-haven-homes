@@ -2,10 +2,22 @@
 import Wrapper from "../../shared/Wrapper.astro";
 import ContactForm from "../../sharedReact/ContactForm/ContactForm";
 import "./contactFormDisplay.scss";
+
+const { displayContentForm, title, content } = Astro.props.data;
 ---
 
-<div>
-  <Wrapper>
-    <ContactForm client:only="react" />
-  </Wrapper>
-</div>
+{
+  displayContentForm ? (
+    <div class="contact-form-display">
+      <Wrapper classes="contact-form-display-wrapper">
+        <div class="contact-form-display-intro">
+          <div class="contact-form-display-intro-title">
+            <h2>{title}</h2>
+          </div>
+          <div class="contact-form-display-intro-content" set:html={content} />
+        </div>
+        <ContactForm client:only="react" />
+      </Wrapper>
+    </div>
+  ) : null
+}

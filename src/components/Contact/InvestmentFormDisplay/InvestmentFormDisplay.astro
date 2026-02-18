@@ -2,10 +2,22 @@
 import Wrapper from "../../shared/Wrapper.astro";
 import InvestmentForm from "../../sharedReact/InvestmentForm/InvestmentForm";
 import "./investmentFormDisplay.scss";
+
+const { displayInvestmentForm, title, content } = Astro.props.data;
 ---
 
-<div>
-  <Wrapper>
-    <InvestmentForm client:only="react" />
-  </Wrapper>
-</div>
+{
+  displayInvestmentForm ? (
+    <div class="investment-form">
+      <Wrapper classes="investment-form-wrapper">
+        <div class="investment-form-intro">
+          <div class="investment-form-intro-title">
+            <h2>{title}</h2>
+          </div>
+          <div class="investment-form-intro-content" set:html={content} />
+        </div>
+        <InvestmentForm client:only="react" />
+      </Wrapper>
+    </div>
+  ) : null
+}

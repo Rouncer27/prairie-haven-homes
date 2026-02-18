@@ -1,0 +1,27 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+
+.contact-form-display {
+  padding: 4.1rem 0;
+  background-color: $secondaryColor;
+
+  &-wrapper {
+    max-width: 100rem !important;
+  }
+
+  &-intro {
+    width: 100%;
+
+    h2 {
+      @extend .hl-three;
+      margin: 0;
+      color: $accentColor;
+      font-weight: 600;
+    }
+
+    p {
+      @extend .p-one;
+    }
+  }
+}

@@ -165,7 +165,7 @@ const InvestmentForm = () => {
             disabled={!isCaptchaVerified || formStatus.submitting}
             type="submit"
           >
-            Send Message
+            Submit Form
           </button>
         </div>
       </form>

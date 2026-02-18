@@ -40,3 +40,19 @@ export const Images_Row_Query = `
         }
     }
 `;
+
+export const Investment_Form_Display_Query = `
+   	 investmentFormDisplay: investmentFormDisplayComponent {
+        displayInvestmentForm
+        title
+        content
+    }
+`;
+
+export const Contact_Form_Display_Query = `
+   	 contactFormDisplay: contentFormDisplayComponent {
+        displayContentForm
+        title
+        content
+    }
+`;

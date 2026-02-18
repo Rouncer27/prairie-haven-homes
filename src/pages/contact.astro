@@ -15,6 +15,8 @@ import {
 import {
   Contact_Information_Query,
   Images_Row_Query,
+  Investment_Form_Display_Query,
+  Contact_Form_Display_Query,
 } from "../data/contact/queries";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
@@ -33,6 +35,8 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
           ${Contact_Information_Query}
           ${Images_Row_Query}
           ${Steps_Process_Query}
+          ${Investment_Form_Display_Query}
+          ${Contact_Form_Display_Query}
         }
 			}
 		}
@@ -56,6 +60,6 @@ const {
   <ContactInformation data={contactPage.contactInformation} />
   <ImagesRow data={contactPage.imagesRow} />
   <StepsProcess data={contactPage.stepsProcess} />
-  <InvestmentFormDisplay />
-  <ContactFormDisplay />
+  <InvestmentFormDisplay data={contactPage.investmentFormDisplay} />
+  <ContactFormDisplay data={contactPage.contactFormDisplay} />
 </Layout>
