@@ -5,16 +5,16 @@ import "./boldIntro.scss";
 const { boldIntro, title, content } = Astro.props.data;
 ---
 
-<div>
-  <Wrapper>
-    <div>
+<div class="bold-intro">
+  <Wrapper classes="bold-intro-wrapper">
+    <div class="bold-intro-bold">
       <div set:html={boldIntro} />
     </div>
-    <div>
-      <div>
+    <div class="bold-intro-content">
+      <div class="bold-intro-content-title">
         <h1>{title}</h1>
       </div>
-      <div set:html={content} />
+      <div class="bold-intro-content-paragraph" set:html={content} />
     </div>
   </Wrapper>
 </div>

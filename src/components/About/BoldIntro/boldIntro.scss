@@ -1,0 +1,29 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+
+.bold-intro {
+  padding: 3rem 0;
+  background-color: $secondaryColor;
+
+  &-bold {
+    width: 100%;
+
+    p {
+      @extend .hl-three;
+    }
+  }
+
+  &-content {
+    width: 100%;
+
+    h1 {
+      @extend .hl-three;
+      color: $accentColor;
+    }
+
+    p {
+      @extend .p-two;
+    }
+  }
+}

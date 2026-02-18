@@ -1,6 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import Wrapper from "../../shared/Wrapper.astro";
 import "./imagesRow.scss";
 
 const { imageOne, imageTwo } = Astro.props.data;
@@ -11,10 +10,10 @@ const imageTwoSrc = imageTwo?.node?.sourceUrl;
 const imageTwoAlt = imageTwo?.node?.altText || "";
 ---
 
-<div>
-  <Wrapper>
-    <div>
-      <div>
+<div class="image-row">
+  <div class="image-row-wrapper">
+    <div class="image-row-image image-one">
+      <div class="image-row-image-inner">
         <Image
           src={imageOneSrc}
           alt={imageOneAlt}
@@ -26,7 +25,9 @@ const imageTwoAlt = imageTwo?.node?.altText || "";
           class=""
         />
       </div>
-      <div>
+    </div>
+    <div class="image-row-image image-two">
+      <div class="image-row-image-inner">
         <Image
           src={imageTwoSrc}
           alt={imageTwoAlt}
@@ -39,5 +40,5 @@ const imageTwoAlt = imageTwo?.node?.altText || "";
         />
       </div>
     </div>
-  </Wrapper>
+  </div>
 </div>
