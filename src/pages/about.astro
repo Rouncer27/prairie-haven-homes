@@ -1,8 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import HeroIntro from "../components/shared/PageComponents/HeroIntro/HeroIntro.astro";
+import BoldIntro from "../components/About/BoldIntro/BoldIntro.astro";
+import ImagesRow from "../components/About/ImagesRow/ImagesRow.astro";
+import ContentLogo from "../components/About/ContentLogo/ContentLogo.astro";
+import PageHero from "../components/About/PageHero/PageHero.astro";
+import StepsProcess from "../components/About/StepsProcess/StepsProcess.astro";
+import Values from "../components/About/Values/Values.astro";
+import Steps from "../components/shared/PageComponents/Steps/Steps.astro";
 
-import { Page_Seo_Query, Hero_Intro_Query } from "../data/page/queries";
+import {
+  Page_Seo_Query,
+  Hero_Intro_Query,
+  Steps_Query,
+} from "../data/page/queries";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   method: "POST",
@@ -15,7 +26,8 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
 			page(id: "/about", idType: URI) {
 				${Page_Seo_Query}
         aboutPage {
-        ${Hero_Intro_Query}
+          ${Hero_Intro_Query}
+          ${Steps_Query}
         }
 			}
 		}
@@ -36,4 +48,11 @@ const {
   metaDescription={seoMetaTags.seoMetaInformation.metaDescription}
 >
   <HeroIntro data={aboutPage.heroIntro} />
+  <BoldIntro />
+  <ImagesRow />
+  <ContentLogo />
+  <PageHero />
+  <StepsProcess />
+  <Values />
+  <Steps data={aboutPage.steps} />
 </Layout>

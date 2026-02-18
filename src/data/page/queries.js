@@ -70,3 +70,38 @@ export const Floorplan_Hero_Query = `
         }
     }
 `;
+
+export const Steps_Query = `
+   	 steps: stepsComponent {
+        title
+        subTitle
+        backgroundImage {
+            node {
+                sourceUrl
+                altText
+                mediaDetails {
+                    width
+                    height
+                }
+            }
+        }
+        stepsImage {
+            node {
+                sourceUrl
+                altText
+                mediaDetails {
+                    width
+                    height
+                }
+            }
+        }
+        buttonText
+        buttonLink {
+            edges {
+                node {
+                    uri
+                }
+            }
+        }
+    }
+`;

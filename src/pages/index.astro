@@ -4,14 +4,17 @@ import HeroIntro from "../components/Home/HeroIntro/HeroIntro.astro";
 import PageIntro from "../components/Home/PageIntro/PageIntro.astro";
 import KeyFeatures from "../components/shared/PageComponents/KeyFeatures/KeyFeatures.astro";
 import ContentBoxes from "../components/Home/ContentBoxes/ContentBoxes.astro";
-import Steps from "../components/Home/Steps/Steps.astro";
+import Steps from "../components/shared/PageComponents/Steps/Steps.astro";
 
-import { Page_Seo_Query, Key_Features_Query } from "../data/page/queries";
+import {
+  Page_Seo_Query,
+  Key_Features_Query,
+  Steps_Query,
+} from "../data/page/queries";
 import {
   Hero_Intro_Query,
   Page_Intro_Query,
   Content_Boxes_Query,
-  Steps_Query,
 } from "../data/home/queries";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
