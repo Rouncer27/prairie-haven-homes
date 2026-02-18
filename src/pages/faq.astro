@@ -1,8 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import HeroIntro from "../components/shared/PageComponents/HeroIntro/HeroIntro.astro";
+import Faqs from "../components/Faq/Faqs/Faqs.astro";
 
 import { Page_Seo_Query, Hero_Intro_Query } from "../data/page/queries";
+import { Faqs_Query } from "../data/faq/queries";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   method: "POST",
@@ -16,6 +18,7 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
 				${Page_Seo_Query}
         faqPage {
           ${Hero_Intro_Query}
+          ${Faqs_Query}
         }
 			}
 		}
@@ -36,4 +39,5 @@ const {
   metaDescription={seoMetaTags.seoMetaInformation.metaDescription}
 >
   <HeroIntro data={faqPage.heroIntro} />
+  <Faqs data={faqPage.faqs} />
 </Layout>
