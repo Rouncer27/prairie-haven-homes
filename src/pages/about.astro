@@ -15,6 +15,15 @@ import {
   Steps_Query,
 } from "../data/page/queries";
 
+import {
+  Bold_Intro_Query,
+  Images_Row_Query,
+  Content_Logo_Query,
+  Page_Hero_Query,
+  Steps_Process_Query,
+  Values_Query,
+} from "../data/about/queries";
+
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   method: "POST",
   headers: {
@@ -27,6 +36,12 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
 				${Page_Seo_Query}
         aboutPage {
           ${Hero_Intro_Query}
+          ${Bold_Intro_Query}
+          ${Images_Row_Query}
+          ${Content_Logo_Query}
+          ${Page_Hero_Query}
+          ${Steps_Process_Query}
+          ${Values_Query}
           ${Steps_Query}
         }
 			}
@@ -48,11 +63,11 @@ const {
   metaDescription={seoMetaTags.seoMetaInformation.metaDescription}
 >
   <HeroIntro data={aboutPage.heroIntro} />
-  <BoldIntro />
-  <ImagesRow />
-  <ContentLogo />
-  <PageHero />
-  <StepsProcess />
-  <Values />
+  <BoldIntro data={aboutPage.boldIntro} />
+  <ImagesRow data={aboutPage.imagesRow} />
+  <ContentLogo data={aboutPage.contentLogo} />
+  <PageHero data={aboutPage.pageHero} />
+  <StepsProcess data={aboutPage.stepsProcess} />
+  <Values data={aboutPage.values} />
   <Steps data={aboutPage.steps} />
 </Layout>
