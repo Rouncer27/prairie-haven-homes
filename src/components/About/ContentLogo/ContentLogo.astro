@@ -1,12 +1,43 @@
 ---
+// @ts-nocheck
+import { Image } from "astro:assets";
 import Wrapper from "../../shared/Wrapper.astro";
 import "./contentLogo.scss";
+
+const { logo, title, contentSections } = Astro.props.data;
+
+const logoSrc = logo?.node?.sourceUrl;
+const logoAlt = logo?.node?.altText || "";
 ---
 
 <div>
   <Wrapper>
     <div>
-      <h1>Content Logo</h1>
+      <Image
+        src={logoSrc}
+        alt={logoAlt}
+        format="webp"
+        widths={[800, 1200, 1600, 2000]}
+        sizes="100vw"
+        loading="eager"
+        inferSize={true}
+        class=""
+      />
+    </div>
+    <div>
+      <div>
+        <h2>{title}</h2>
+      </div>
+      {
+        contentSections.map((section) => {
+          return (
+            <div>
+              <h3>{section.boldText}</h3>
+              <div set:html={section.content} />
+            </div>
+          );
+        })
+      }
     </div>
   </Wrapper>
 </div>

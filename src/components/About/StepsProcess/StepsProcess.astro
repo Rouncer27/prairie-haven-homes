@@ -1,12 +1,27 @@
 ---
+// @ts-nocheck
 import Wrapper from "../../shared/Wrapper.astro";
 import "./stepsProcess.scss";
+
+const { title, steps } = Astro.props.data;
 ---
 
 <div>
   <Wrapper>
     <div>
-      <h1>Steps Process</h1>
+      <h2>{title}</h2>
     </div>
+    {
+      steps.map((step) => {
+        return (
+          <div>
+            <div>
+              <h3>{step.title}</h3>
+            </div>
+            <div set:html={step.content} />
+          </div>
+        );
+      })
+    }
   </Wrapper>
 </div>

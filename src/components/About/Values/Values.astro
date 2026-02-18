@@ -1,12 +1,17 @@
 ---
 import Wrapper from "../../shared/Wrapper.astro";
 import "./values.scss";
+
+const { title, content } = Astro.props.data;
 ---
 
 <div>
   <Wrapper>
     <div>
-      <h1>Values</h1>
+      <h2>{title}</h2>
+    </div>
+    <div>
+      <div set:html={content} />
     </div>
   </Wrapper>
 </div>

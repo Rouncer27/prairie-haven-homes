@@ -1,12 +1,33 @@
 ---
-import Wrapper from "../../shared/Wrapper.astro";
+import { Image } from "astro:assets";
 import "./pageHero.scss";
+import Button from "../../shared/Button.astro";
+
+const { image, title, content, buttonText, buttonLink } = Astro.props.data;
+const imageSrc = image?.node?.sourceUrl;
+const imagelt = image?.node?.altText || "";
 ---
 
 <div>
-  <Wrapper>
+  <div>
     <div>
-      <h1>Page Hero</h1>
+      <h2>{title}</h2>
     </div>
-  </Wrapper>
+    <div set:html={content} />
+    <div>
+      <Button ele="a" href={buttonLink.edges[0].node.uri}>{buttonText}</Button>
+    </div>
+  </div>
+  <div>
+    <Image
+      src={imageSrc}
+      alt={imagelt}
+      format="webp"
+      widths={[800, 1200, 1600, 2000]}
+      sizes="100vw"
+      loading="eager"
+      inferSize={true}
+      class=""
+    />
+  </div>
 </div>

@@ -1,12 +1,20 @@
 ---
 import Wrapper from "../../shared/Wrapper.astro";
 import "./boldIntro.scss";
+
+const { boldIntro, title, content } = Astro.props.data;
 ---
 
 <div>
   <Wrapper>
     <div>
-      <h2>Bold Intro</h2>
+      <div set:html={boldIntro} />
+    </div>
+    <div>
+      <div>
+        <h1>{title}</h1>
+      </div>
+      <div set:html={content} />
     </div>
   </Wrapper>
 </div>

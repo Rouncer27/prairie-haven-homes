@@ -67,7 +67,7 @@ export const Page_Hero_Query = `
         title
         content
         buttonText
-          buttonLink {
+        buttonLink {
             edges {
                 node {
                     uri

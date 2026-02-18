@@ -1,12 +1,43 @@
 ---
+import { Image } from "astro:assets";
 import Wrapper from "../../shared/Wrapper.astro";
 import "./imagesRow.scss";
+
+const { imageOne, imageTwo } = Astro.props.data;
+
+const imageOneSrc = imageOne?.node?.sourceUrl;
+const imageOneAlt = imageOne?.node?.altText || "";
+const imageTwoSrc = imageTwo?.node?.sourceUrl;
+const imageTwoAlt = imageTwo?.node?.altText || "";
 ---
 
 <div>
   <Wrapper>
     <div>
-      <h2>Images Row</h2>
+      <div>
+        <Image
+          src={imageOneSrc}
+          alt={imageOneAlt}
+          format="webp"
+          widths={[800, 1200, 1600, 2000]}
+          sizes="100vw"
+          loading="eager"
+          inferSize={true}
+          class=""
+        />
+      </div>
+      <div>
+        <Image
+          src={imageTwoSrc}
+          alt={imageTwoAlt}
+          format="webp"
+          widths={[800, 1200, 1600, 2000]}
+          sizes="100vw"
+          loading="eager"
+          inferSize={true}
+          class=""
+        />
+      </div>
     </div>
   </Wrapper>
 </div>
