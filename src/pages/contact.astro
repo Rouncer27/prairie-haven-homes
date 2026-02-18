@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import HeroIntro from "../components/shared/PageComponents/HeroIntro/HeroIntro.astro";
 import ContactInformation from "../components/Contact/ContactInformation/ContactInformation.astro";
 import ImagesRow from "../components/Contact/ImagesRow/ImagesRow.astro";
+import ContactFormDisplay from "../components/Contact/ContactFormDisplay/ContactFormDisplay.astro";
 import StepsProcess from "../components/shared/PageComponents/StepsProcess/StepsProcess.astro";
 
 import {
@@ -53,5 +54,6 @@ const {
   <HeroIntro data={contactPage.heroIntro} />
   <ContactInformation data={contactPage.contactInformation} />
   <ImagesRow data={contactPage.imagesRow} />
+  <ContactFormDisplay />
   <StepsProcess data={contactPage.stepsProcess} />
 </Layout>

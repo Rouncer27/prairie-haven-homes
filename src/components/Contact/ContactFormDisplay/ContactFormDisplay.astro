@@ -1,0 +1,11 @@
+---
+import Wrapper from "../../shared/Wrapper.astro";
+import ContactForm from "../../sharedReact/ContactForm/ContactForm";
+import "./contactFormDisplay.scss";
+---
+
+<div>
+  <Wrapper>
+    <ContactForm client:only="react" />
+  </Wrapper>
+</div>

@@ -28,8 +28,9 @@ const ContactForm = () => {
     lastName: "",
     yourEmail: "",
     phone: "",
+    locationPlan: "",
     comments: "",
-    _wpcf7_unit_tag: "wpcf7-f546-948",
+    _wpcf7_unit_tag: "wpcf7-f858-965",
   });
 
   const [formStatus, setFormStatus] = useState({
@@ -134,6 +135,19 @@ const ContactForm = () => {
           <Textarea
             handler={(event) => handleOnChange(event, setFormData, formData)}
             value={formData.comments}
+            label="Which location and home plan are you looking for?"
+            id="locationPlan"
+            size="full"
+            placeholder="Which location and home plan are you looking for?"
+            required={true}
+            rows="10"
+            error={formStatus.errors.find(
+              (error) => error.idref === "comments",
+            )}
+          />
+          <Textarea
+            handler={(event) => handleOnChange(event, setFormData, formData)}
+            value={formData.comments}
             label="Comments"
             id="comments"
             size="full"
@@ -152,7 +166,7 @@ const ContactForm = () => {
           )}
           <ReCAPTCHA
             ref={recaptchaRef}
-            sitekey={`6Ld_E00sAAAAAD1Cw3duhnlL24ShZTJi4Xa9FrF6`}
+            sitekey={`d`}
             onChange={onChangeRecaptcha}
             onExpired={() => setIsCaptchaVerified(false)}
           />
