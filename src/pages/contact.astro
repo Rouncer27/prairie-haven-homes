@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import HeroIntro from "../components/shared/PageComponents/HeroIntro/HeroIntro.astro";
-
+import ContactInformation from "../components/Contact/ContactInformation/ContactInformation.astro";
+import ImagesRow from "../components/Contact/ImagesRow/ImagesRow.astro";
 import StepsProcess from "../components/shared/PageComponents/StepsProcess/StepsProcess.astro";
 
 import {
@@ -50,5 +51,7 @@ const {
   metaDescription={seoMetaTags.seoMetaInformation.metaDescription}
 >
   <HeroIntro data={contactPage.heroIntro} />
+  <ContactInformation data={contactPage.contactInformation} />
+  <ImagesRow data={contactPage.imagesRow} />
   <StepsProcess data={contactPage.stepsProcess} />
 </Layout>
