@@ -5,12 +5,12 @@ import "./values.scss";
 const { title, content } = Astro.props.data;
 ---
 
-<div>
-  <Wrapper>
-    <div>
+<div class="values">
+  <Wrapper classes="values-wrapper">
+    <div class="values-title">
       <h2>{title}</h2>
     </div>
-    <div>
+    <div class="values-content">
       <div set:html={content} />
     </div>
   </Wrapper>

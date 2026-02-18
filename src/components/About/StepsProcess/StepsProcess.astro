@@ -6,19 +6,19 @@ import "./stepsProcess.scss";
 const { title, steps } = Astro.props.data;
 ---
 
-<div>
-  <Wrapper>
-    <div>
+<div class="steps-process">
+  <Wrapper classes="steps-process-wrapper">
+    <div class="steps-process-title">
       <h2>{title}</h2>
     </div>
     {
       steps.map((step) => {
         return (
-          <div>
-            <div>
+          <div class="steps-process-step">
+            <div class="steps-process-step-title">
               <h3>{step.title}</h3>
             </div>
-            <div set:html={step.content} />
+            <div class="steps-process-step-content" set:html={step.content} />
           </div>
         );
       })
