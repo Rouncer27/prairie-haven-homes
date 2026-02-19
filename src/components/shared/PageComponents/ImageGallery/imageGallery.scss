@@ -1,8 +1,25 @@
+@use "../../../../styles/abstracts/" as *;
+@use "../../../../styles/global/headlines";
+
 .image-gallery {
+  &.image-gallery-floorplan {
+    background-color: $secondaryColor;
+  }
+
+  &-title {
+    width: 100%;
+    text-align: center;
+
+    h2 {
+      @extend .hl-three;
+    }
+  }
+
   &-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    width: 100%;
   }
 
   &-item {

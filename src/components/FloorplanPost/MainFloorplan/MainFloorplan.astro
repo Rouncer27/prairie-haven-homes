@@ -9,9 +9,9 @@ const planSrc = floorplan?.node?.sourceUrl;
 const palnAlt = floorplan?.node?.altText || "";
 ---
 
-<div>
-  <Wrapper>
-    <div>
+<div class="main-floorplan">
+  <Wrapper classes="main-floorplan-wrapper">
+    <div class="main-floorplan-container">
       <Image
         src={planSrc}
         alt={palnAlt}

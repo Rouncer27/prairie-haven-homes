@@ -1,0 +1,11 @@
+@use "../../../styles/abstracts/" as *;
+
+.main-floorplan {
+  background-color: $secondaryColor;
+
+  &-container {
+    width: 100%;
+    max-width: 100rem;
+    margin: 7.5rem auto;
+  }
+}

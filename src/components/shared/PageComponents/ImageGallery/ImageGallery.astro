@@ -8,10 +8,19 @@ import "./imageGallery.scss";
 const {
   gallery: { edges: gallery },
 } = Astro.props.data;
+
+const { isFloorplan } = Astro.props;
 ---
 
-<div class="image-gallery">
+<div class={`image-gallery${isFloorplan ? " image-gallery-floorplan" : ""}`}>
   <Wrapper classes="image-gallery-wrapper">
+    {
+      isFloorplan ? (
+        <div class="image-gallery-title">
+          <h2>Gallery For Floorplan</h2>
+        </div>
+      ) : null
+    }
     <div class="image-gallery-container">
       {
         gallery.map((gal) => {
@@ -35,7 +44,9 @@ const {
       }
     </div>
     <div class="image-gallery-links">
-      <Button btnstyle="two" ele="a" href="/haven-homes">See Floorplans</Button>
+      <Button btnstyle="two" ele="a" href="/haven-homes"
+        >{isFloorplan ? "Back To" : "See"} Floorplans</Button
+      >
       <Button btnstyle="two" ele="a" href="/about">About Us</Button>
     </div>
   </Wrapper>
