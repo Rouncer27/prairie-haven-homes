@@ -1,10 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import HeroIntro from "../components/shared/PageComponents/HeroIntro/HeroIntro.astro";
-import ImageGallery from "../components/Gallery/ImageGallery/ImageGallery.astro";
+import ImageGallery from "../components/shared/PageComponents/ImageGallery/ImageGallery.astro";
 
-import { Page_Seo_Query, Hero_Intro_Query } from "../data/page/queries";
-import { Image_Gallery_Query } from "../data/gallery/queries";
+import {
+  Page_Seo_Query,
+  Hero_Intro_Query,
+  Image_Gallery_Query,
+} from "../data/page/queries";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   method: "POST",

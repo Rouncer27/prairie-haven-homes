@@ -3,11 +3,18 @@
 import Layout from "../../layouts/Layout.astro";
 import FloorplansHero from "../../components/FloorplanPost/FloorplansHero/FloorplansHero.astro";
 import FloorplanIntro from "../../components/FloorplanPost/FloorplanIntro/FloorplanIntro.astro";
+import MainFloorplan from "../../components/FloorplanPost/MainFloorplan/MainFloorplan.astro";
+import ImageGallery from "../../components/shared/PageComponents/ImageGallery/ImageGallery.astro";
 
-import { Page_Seo_Query, Floorplan_Hero_Query } from "../../data/page/queries";
+import {
+  Page_Seo_Query,
+  Floorplan_Hero_Query,
+  Image_Gallery_Query,
+} from "../../data/page/queries";
 import {
   Hero_Titles_Query,
   Floorplan_Intro_Query,
+  Main_Floorplan_Query,
 } from "../../data/floorPlans/queries";
 
 export async function getStaticPaths() {
@@ -60,6 +67,8 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
             floorplanPost {
                 ${Hero_Titles_Query}
                 ${Floorplan_Intro_Query}
+                ${Main_Floorplan_Query}
+                ${Image_Gallery_Query}
             }            
         }
         ${Floorplan_Hero_Query}
@@ -91,4 +100,6 @@ const {
     image={heroImage.floorplanHero.floorplanHeroImage}
   />
   <FloorplanIntro data={floorplanPost.floorplanIntro} />
+  <MainFloorplan data={floorplanPost.mainFloorplan} />
+  <ImageGallery data={floorplanPost.imageGallery} />
 </Layout>

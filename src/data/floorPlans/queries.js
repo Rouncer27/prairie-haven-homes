@@ -20,3 +20,18 @@ export const Floorplan_Intro_Query = `
         content
     }
 `;
+
+export const Main_Floorplan_Query = `
+    mainFloorplan: mainFloorplanComponent {
+        floorplan {
+            node {
+                sourceUrl
+                altText
+                mediaDetails {
+                    width
+                    height
+                }
+            }
+        }
+    }
+`;
