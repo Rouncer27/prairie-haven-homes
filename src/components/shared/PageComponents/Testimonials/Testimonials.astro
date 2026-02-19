@@ -1,32 +1,33 @@
 ---
-import TestimonialsSlider from "./TestimonialsSlider.jsx";
+// @ts-nocheck
+import Wrapper from "../../../shared/Wrapper.astro";
+import "./testimonials.scss";
 
-const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
-  method: "POST",
-  headers: {
-    "content-type": "application/json",
-  },
-  body: JSON.stringify({
-    query: `
-        query testimonialsQuery {
-             testimonials {
-                nodes {
-                    title
-                    testimonialsPost {
-                        content
-                    }
-                }
-            }
-        }
-        `,
-  }),
-});
-
-const { data } = await response.json();
-const testimonials = data?.testimonials?.nodes;
+const { title } = Astro.props.data;
+const { testimonials } = Astro.props;
 ---
 
-<TestimonialsSlider
-  client:only="react"
-  testimonials={testimonials ? testimonials : []}
-/>
+<div class="testimonials">
+  <Wrapper classes="testimonials-wrapper">
+    <div class="testimonials-title">
+      <h2>{title}</h2>
+    </div>
+    <div class="testimonials-items">
+      {
+        testimonials.map((testimonial) => {
+          return (
+            <div class="testimonials-items-testimonial">
+              <div
+                class="testimonials-items-testimonial-content"
+                set:html={testimonial.node.testimonialPost.mainTestimonial}
+              />
+              <div class="testimonials-items-testimonial-author">
+                <p>{testimonial.node.title}</p>
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </Wrapper>
+</div>
