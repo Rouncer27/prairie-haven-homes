@@ -1,0 +1,42 @@
+---
+// @ts-nocheck
+import { Image } from "astro:assets";
+import Wrapper from "../../shared/Wrapper.astro";
+import "./imageGallery.scss";
+import Button from "../../shared/Button.astro";
+
+const {
+  gallery: { edges: gallery },
+} = Astro.props.data;
+---
+
+<div class="image-gallery">
+  <Wrapper classes="image-gallery-wrapper">
+    <div class="image-gallery-container">
+      {
+        gallery.map((gal) => {
+          const imageeSrc = gal?.node?.sourceUrl;
+          const imageAlt = gal?.node?.altText || "";
+          return (
+            <div class="image-gallery-item">
+              <Image
+                src={imageeSrc}
+                alt={imageAlt}
+                format="webp"
+                widths={[800, 1200, 1600, 2000]}
+                sizes="100vw"
+                loading="eager"
+                inferSize={true}
+                class=""
+              />
+            </div>
+          );
+        })
+      }
+    </div>
+    <div class="image-gallery-links">
+      <Button btnstyle="two" ele="a" href="/haven-homes">See Floorplans</Button>
+      <Button btnstyle="two" ele="a" href="/about">About Us</Button>
+    </div>
+  </Wrapper>
+</div>
