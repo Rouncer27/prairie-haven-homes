@@ -5,11 +5,13 @@ import FloorplansHero from "../../components/FloorplanPost/FloorplansHero/Floorp
 import FloorplanIntro from "../../components/FloorplanPost/FloorplanIntro/FloorplanIntro.astro";
 import MainFloorplan from "../../components/FloorplanPost/MainFloorplan/MainFloorplan.astro";
 import ImageGallery from "../../components/shared/PageComponents/ImageGallery/ImageGallery.astro";
+import Steps from "../../components/shared/PageComponents/Steps/Steps.astro";
 
 import {
   Page_Seo_Query,
   Floorplan_Hero_Query,
   Image_Gallery_Query,
+  Steps_Query,
 } from "../../data/page/queries";
 import {
   Hero_Titles_Query,
@@ -69,6 +71,7 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
                 ${Floorplan_Intro_Query}
                 ${Main_Floorplan_Query}
                 ${Image_Gallery_Query}
+                ${Steps_Query}
             }            
         }
         ${Floorplan_Hero_Query}
@@ -102,4 +105,5 @@ const {
   <FloorplanIntro data={floorplanPost.floorplanIntro} />
   <MainFloorplan data={floorplanPost.mainFloorplan} />
   <ImageGallery data={floorplanPost.imageGallery} isFloorplan={true} />
+  <Steps data={floorplanPost.steps} />
 </Layout>
