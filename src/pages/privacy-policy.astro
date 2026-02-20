@@ -1,8 +1,11 @@
 ---
 import Wrapper from "../components/shared/Wrapper.astro";
 import Layout from "../layouts/Layout.astro";
+import HeroIntro from "../components/shared/PageComponents/HeroIntro/HeroIntro.astro";
+import MainContent from "../components/PrivacyPolicy/MainContent/MainContent.astro";
 
-import { Page_Seo_Query } from "../data/page/queries";
+import { Page_Seo_Query, Hero_Intro_Query } from "../data/page/queries";
+import { Main_Content_Query } from "../data/privacyPolicy/queries";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   method: "POST",
@@ -14,6 +17,11 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
 		query privacyPolicyPageQuery {
 			page(id: "/privacy-policy", idType: URI) {
 				${Page_Seo_Query}
+
+        privacyPolicyPage {
+          ${Hero_Intro_Query}
+          ${Main_Content_Query}
+        }
 			}
 		}
 	`,
@@ -32,7 +40,6 @@ const {
   metaTitle={seoMetaTags.seoMetaInformation.metaTitle}
   metaDescription={seoMetaTags.seoMetaInformation.metaDescription}
 >
-  <Wrapper>
-    <h1>Privacy Policy</h1>
-  </Wrapper>
+  <HeroIntro data={privacyPolicyPage.heroIntro} />
+  <MainContent data={privacyPolicyPage.mainContent} />
 </Layout>
