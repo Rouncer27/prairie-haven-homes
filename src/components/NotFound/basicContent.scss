@@ -4,7 +4,7 @@
 @use "../../styles/global/headlines";
 
 .not-found-main {
-  background-color: $secondaryColor;
+  background-color: rgba($accentColor, 0.6);
 
   &-title {
     width: 100%;
@@ -23,7 +23,7 @@
     padding-bottom: 25vh;
 
     p {
-      @extend .p-one;
+      @extend .p-three;
       color: $whiteColor;
     }
 
