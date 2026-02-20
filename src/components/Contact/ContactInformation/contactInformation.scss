@@ -1,0 +1,17 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+@use "../../../styles/global/paragraphs";
+
+.contact-information {
+  &-content {
+    text-align: center;
+
+    h2 {
+      @extend .hl-three;
+    }
+
+    p {
+      @extend .p-three;
+    }
+  }
+}

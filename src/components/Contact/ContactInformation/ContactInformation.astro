@@ -1,12 +1,15 @@
 ---
 import Wrapper from "../../shared/Wrapper.astro";
 import "./contactInformation.scss";
+
+const { content } = Astro.props.data;
 ---
 
-<div>
-  <Wrapper>
-    <div>
+<div class="contact-information">
+  <Wrapper classes="contact-information-wrapper">
+    <div class="contact-information-content">
       <h2>Contact Information</h2>
+      <div set:html={content} />
     </div>
   </Wrapper>
 </div>
