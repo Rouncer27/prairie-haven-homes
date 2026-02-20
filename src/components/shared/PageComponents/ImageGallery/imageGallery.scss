@@ -24,6 +24,7 @@
 
   &-item {
     width: calc(100%);
+    margin: 2.5rem auto;
 
     @media (min-width: 768px) {
       width: calc(50% - 1.5rem);
@@ -40,5 +41,13 @@
     width: calc(100%);
     margin: 5rem auto;
     text-align: center;
+
+    a {
+      margin-bottom: 2.5rem;
+
+      @media (min-width: 768px) {
+        margin-bottom: 0;
+      }
+    }
   }
 }

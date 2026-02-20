@@ -2,7 +2,11 @@
 @use "../../../styles/global/headlines";
 
 .floorplans {
-  margin: 9rem auto;
+  margin: 2.5rem auto;
+
+  @media (min-width: 768px) {
+    margin: 9rem auto;
+  }
 
   &__title {
     width: 100%;
@@ -23,6 +27,8 @@
   &__plan {
     position: relative;
     width: calc(100%);
+    min-height: 35rem;
+    margin-bottom: 2rem;
 
     @media (min-width: 768px) {
       width: calc(50% - 2rem);

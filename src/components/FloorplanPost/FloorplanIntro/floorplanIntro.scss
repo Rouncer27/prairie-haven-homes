@@ -1,7 +1,11 @@
 @use "../../../styles/global/paragraphs";
 
 .floorplan-intro {
-  padding: 5rem 0;
+  padding: 2rem 0;
+
+  @media (min-width: 768px) {
+    padding: 5rem 0;
+  }
 
   &-wrapper {
     flex-direction: row-reverse;
@@ -9,9 +13,11 @@
 
   &-content {
     width: calc(100%);
+    margin-bottom: 4rem;
 
     @media (min-width: 798px) {
       width: calc(50% - 2rem);
+      margin-bottom: 0;
       margin-left: 2rem;
     }
 

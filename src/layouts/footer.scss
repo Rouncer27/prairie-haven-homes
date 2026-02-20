@@ -12,10 +12,14 @@
 
   &-logo {
     width: calc(100%);
+    margin-bottom: 3rem;
+    text-align: center;
 
     @media (min-width: 768px) {
       width: calc(20%);
+      margin-bottom: 0;
       padding: 0;
+      text-align: left;
     }
 
     h2 {
