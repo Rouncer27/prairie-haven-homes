@@ -135,10 +135,10 @@ const ContactForm = () => {
           <Textarea
             handler={(event) => handleOnChange(event, setFormData, formData)}
             value={formData.locationPlan}
-            label="Which location and home plan are you looking for?"
+            label="Which location are you looking for?"
             id="locationPlan"
             size="full"
-            placeholder="Which location and home plan are you looking for?"
+            placeholder="Which location are you looking for?"
             required={true}
             rows="10"
             error={formStatus.errors.find(
