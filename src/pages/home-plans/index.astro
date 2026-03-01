@@ -30,7 +30,7 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   body: JSON.stringify({
     query: `
 		query havenHomesPageQuery {
-			page(id: "/haven-homes", idType: URI) {
+			page(id: "/home-plans", idType: URI) {
 				${Page_Seo_Query}
         havenHomesPage {
           ${Hero_Intro_Query}
