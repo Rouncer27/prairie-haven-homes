@@ -1,0 +1,5 @@
+https://www.prairiehavenhomes.ca/ https://prairiehavenhomes.ca/:splat 301!
+http://www.prairiehavenhomes.ca/ https://prairiehavenhomes.ca/:splat 301!
+http://prairiehavenhomes.ca/ https://prairiehavenhomes.ca/:splat 301!
+
+https://prairie-haven-homes.netlify.app/* https://prairiehavenhomes.ca/:splat 301!
