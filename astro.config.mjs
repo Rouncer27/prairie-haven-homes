@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,7 +10,8 @@ export default defineConfig({
       devSourcemap: true, // ✅ Enables CSS/SCSS source maps for better debugging
     },
   },
-  integrations: [react()],
+  site: "https://prairiehavenhomes.ca/",
+  integrations: [react(), sitemap()],
   image: {
     domains: ["prairiehaven.swbdatabases.ca/"],
     remotePatterns: [{ protocol: "https" }],
