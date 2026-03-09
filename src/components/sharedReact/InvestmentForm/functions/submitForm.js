@@ -46,7 +46,7 @@ const submitForm = async (
       bodyFormData.append(field[0], field[1]);
     });
 
-    const response = await fetch("/.netlify/functions/contact", {
+    const response = await fetch("/.netlify/functions/investment", {
       method: "POST",
       body: JSON.stringify(formData),
     }).then((response) => {
