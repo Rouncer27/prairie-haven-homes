@@ -64,7 +64,7 @@ const submitForm = async (
       return response.json();
     });
 
-    // console.log("response: ", response);
+    console.log("response: ", response);
 
     if (response.data.status === "mail_sent") {
       clearTimeout(timeoutID);
