@@ -53,6 +53,8 @@ const InvestmentForm = () => {
     }));
   };
 
+  console.log("formData", formData);
+
   return (
     <div className="contact-form">
       <form
