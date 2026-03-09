@@ -50,7 +50,7 @@ const submitForm = async (
       method: "POST",
       body: JSON.stringify(formData),
     }).then((response) => {
-      // console.log("response before JSON: ", response);
+      console.log("response before JSON: ", response);
       if (response.status === 404) {
         throw new Error(
           `Contact Form was not sent because the server is not found - ${response.status}. Please try again.`,
