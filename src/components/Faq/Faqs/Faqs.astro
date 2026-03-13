@@ -6,6 +6,26 @@ import FaqsItem from "./FaqsItem.astro";
 import "./faqs.scss";
 
 const { faqs } = Astro.props.data;
+
+// 1️⃣ Server-safe function to strip HTML
+const stripHtml = (html) => html.replace(/<[^>]+>/g, "").trim();
+
+// 2️⃣ JSON-LD Schema for FAQ
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: stripHtml(faq.answer),
+    },
+  })),
+};
+
+// 3️⃣ Stringify JSON-LD
+const jsonLd = JSON.stringify(faqSchema, null, 2);
 ---
 
 <div class="faqs-section">
@@ -17,6 +37,9 @@ const { faqs } = Astro.props.data;
     }
   </Wrapper>
 </div>
+
+<!-- 4️⃣ Inline JSON-LD Schema -->
+<script type="application/ld+json" is:inline set:html={jsonLd} />
 
 <!-- 🔵 Category-level accordion toggle script -->
 <script>
